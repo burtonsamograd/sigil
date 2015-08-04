@@ -1,4 +1,14 @@
-(require 'parenscript)
+(require :parenscript)
+
+;; add 'load' to parenscript compiler
+(ps:defpsmacro load (file)
+  (let (code)
+    (with-open-file (f file)
+      (do
+       ((form (read f nil) (read f nil)))
+       ((not form))
+        (push form code)))
+    (cons 'progn (nreverse code))))
 
 (defun ps2js (f)
   (in-package :ps)
