@@ -4,15 +4,15 @@
 
 ;; add 'load' to parenscript compiler
 (ps:defpsmacro load (file)
-  (format *error-output* "~A~%" *include-paths*)
+  ;;(format *error-output* "~A~%" *include-paths*)
   (let (code)
       (catch 'found
         (dolist (include-path *include-paths*)
           (let ((path (concatenate 'string (directory-namestring include-path) file)))
-            (format *error-output* "Searching: ~A~%" path)
+            ;;(format *error-output* "Searching: ~A~%" path)
             (when (probe-file path)
               (with-open-file (f path)
-                (format *error-output* "Found: ~A~%" path)
+                ;;(format *error-output* "Found: ~A~%" path)
                 (do
                  ((form (read f nil) (read f nil)))
                  ((not form))
