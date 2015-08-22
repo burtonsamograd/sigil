@@ -1,3 +1,4 @@
+(require :sb-posix)
 (require :parenscript)
 
 (defparameter *include-paths* ())
@@ -26,7 +27,7 @@
   (do
    ((form (read f nil) (read f nil)))
    ((not form))
-    ;(format t  "/* ~A */~%" form)
+    (format t  "/* ~A */~%" form)
     (format t "~A~%" (ps:ps* form))))
 
 (defmacro while (test &body body)
@@ -37,8 +38,8 @@
 
 (defun repl ()
   (loop
-     (format t "> ")
-     (force-output)
+     (format *error-output* "> ")
+     (force-output *error-output*)
      (handler-case
          (let ((form (read)))
            (format t "~A~%" (ps:ps* form)))
