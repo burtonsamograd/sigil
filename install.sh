@@ -1,1 +1,1 @@
-./build.sh ; sudo cp sigil /usr/local/bin
+sudo cp sigil /usr/local/bin
