@@ -1,24 +1,25 @@
 (require :parenscript)
 
-(defparameter *include-paths* (list "./"))
+(defparameter *include-paths* ())
 
 ;; add 'load' to parenscript compiler
 (ps:defpsmacro load (file)
+  (format *error-output* "~A~%" *include-paths*)
   (let (code)
-    (catch 'found
-      (dolist (include-path *include-paths*)
-        (let ((path (concatenate 'string include-path "/" file)))
-          ;(format *error-output* "Searching: ~A~%" path)
-          (when (probe-file path)
-            ;(format *error-output* "Found: ~A~%" path)
-            (with-open-file (f path)
-              (do
-               ((form (read f nil) (read f nil)))
-               ((not form))
-                (push form code)))
-            (throw 'found (cons 'progn (nreverse code))))))
-      (format *error-output* "ps2js: Cannot find load file: ~A~%" file)
-      )))
+      (catch 'found
+        (dolist (include-path *include-paths*)
+          (let ((path (concatenate 'string (directory-namestring include-path) file)))
+            (format *error-output* "Searching: ~A~%" path)
+            (when (probe-file path)
+              (with-open-file (f path)
+                (format *error-output* "Found: ~A~%" path)
+                (do
+                 ((form (read f nil) (read f nil)))
+                 ((not form))
+                  (push form code)))
+              (throw 'found (cons 'progn (nreverse code))))))
+          (format *error-output* "ps2js: Cannot find load file: ~A~%" file))
+      ))
 
 (defun ps2js (f)
   (in-package :ps)
@@ -35,6 +36,7 @@
       ,@body))
 
 (defun main (argv)
+  (push (probe-file ".") *include-paths*)
   (if (cdr argv)
       (progn
         (pop argv)
@@ -43,7 +45,7 @@
             (cond 
               ((string= arg "-I")
                (let ((dir (pop argv)))
-                 (push dir *include-paths*)))
+                 (push (probe-file dir) *include-paths*)))
               ((string= arg "--eval")
                (let ((code (pop argv)))
                  (format t "/* --eval ~A~% */" (read-from-string code))
@@ -54,12 +56,17 @@
                  (format t "/* --pseval ~A~% */" (read-from-string code))
                  (ps:ps* (read-from-string code))))
               (t
-               (setf *include-paths* (reverse *include-paths*))
-               (with-open-file (f arg)
-                 (handler-bind
-                     ((error
-                       (lambda (e) 
-                         (format *error-output* "~A~%" e)
-                         (sb-ext:exit :code 1))))
-                   (ps2js f))))))))
+               (let ((probe-results (probe-file arg)))
+                 (when probe-results
+                   ;; Add current file directory to include paths so they can relative load properly
+                   (push (directory-namestring probe-results) *include-paths*)
+                   
+                   (setf *include-paths* (reverse *include-paths*))
+                   (with-open-file (f arg)
+                     (handler-bind
+                         ((error
+                           (lambda (e) 
+                             (format *error-output* "~A~%" e)
+                             (sb-ext:exit :code 1))))
+                       (ps2js f))))))))))
       (ps2js *standard-input*)))
