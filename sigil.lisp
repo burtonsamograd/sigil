@@ -18,7 +18,7 @@
                  ((not form))
                   (push form code)))
               (throw 'found (cons 'progn (nreverse code))))))
-          (format *error-output* "sigil: Cannot find load file: ~A~%" file))
+          (format *error-output* "ps2js: Cannot find load file: ~A~%" file))
       ))
 
 (defun ps2js (f)
@@ -35,6 +35,17 @@
         (return))
       ,@body))
 
+(defun repl ()
+  (loop
+     (format t "> ")
+     (force-output)
+     (handler-case
+         (let ((form (read)))
+           (format t "~A~%" (ps:ps* form)))
+       (sb-sys:interactive-interrupt () (sb-ext:exit))
+       (end-of-file () (sb-ext:exit))
+       )))
+
 (defun main (argv)
   (push (probe-file ".") *include-paths*)
   (if (cdr argv)
@@ -46,6 +57,7 @@
               ((string= arg "-I")
                (let ((dir (pop argv)))
                  (push (probe-file dir) *include-paths*)))
+              ((string= arg "-i") (repl))
               ((string= arg "--eval")
                (let ((code (pop argv)))
                  (format t "/* --eval ~A~% */" (read-from-string code))
@@ -69,4 +81,4 @@
                              (format *error-output* "~A~%" e)
                              (sb-ext:exit :code 1))))
                        (ps2js f))))))))))
-      (ps2js *standard-input*)))
+      (repl)))
