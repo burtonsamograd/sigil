@@ -18,7 +18,7 @@
                  ((not form))
                   (push form code)))
               (throw 'found (cons 'progn (nreverse code))))))
-          (format *error-output* "ps2js: Cannot find load file: ~A~%" file))
+          (format *error-output* "sigil: Cannot find load file: ~A~%" file))
       ))
 
 (defun ps2js (f)

@@ -1,13 +1,13 @@
-ps2js
+sigil
 -----
 
-ps2js is a Parenscript to javascript command line compiler.
+Sigil is a Parenscript to Javascript command line compiler.
 
     https://github.com/vsedach/Parenscript
 
 Usage:
 
-    ps2js [--eval <CL code>] [--pseval <PS Code>] [parenscript files...] > app.js
+    sigil [-I load-directory] [--eval <CL code>] [--pseval <PS Code>] app.ps > app.js
 
 Installation:
 
@@ -15,7 +15,8 @@ Run build.sh to compile ps2js. Use install.sh to build and install in /usr/local
 
 Requires sbcl to be installed along with parenscript in your ASDF
 instal path. The easiest way is to use quicklisp, but you can also get
-this is to run the following (but there might be other dependencies that need to be installed):
+this is to run the following (but there might be other dependencies
+that need to be installed):
 
     cd ~/common-lisp && git clone https://github.com/vsedach/Parenscript
 
