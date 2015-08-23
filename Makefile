@@ -9,4 +9,4 @@ install: all
 	sudo cp sigil $(INSTALLDIR)
 
 clean:
-	rm -f sigil *~
+	rm -f sigil *~ quicklisp.lisp
