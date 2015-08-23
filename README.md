@@ -5,6 +5,8 @@ Sigil is a Parenscript to Javascript command line compiler.
 
     https://github.com/vsedach/Parenscript
 
+    https://common-lisp.net/project/parenscript/reference.html
+
 Usage:
 
     sigil [-i] [-I load-directory] [--eval <CL code>] [--pseval <PS Code>] app.ps > app.js
