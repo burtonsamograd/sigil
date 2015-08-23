@@ -1,7 +1,7 @@
 sigil
 -----
 
-Sigil is a Parenscript to Javascript command line compiler.
+Sigil is a Parenscript to Javascript command line compiler and REPL.
 
     https://github.com/vsedach/Parenscript
 
