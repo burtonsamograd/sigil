@@ -32,7 +32,7 @@ maybe some other Common Lisp but I haven't tried) to be installed,
 which you can grab from http://www.sbcl.org/platform-table.html, or
 through something like 'apt-get install sbcl'.
 
-You can 'npm install sigil_' (note the underscore) locally into
+You can 'npm install sigil-cli' (note the underscore) locally into
 node_modules; the -g option doesn't work yet.
 
 Load
