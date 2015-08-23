@@ -1,5 +1,5 @@
 {
-    "name": "sigil",
+    "name": "sigil_",
     "version": "1.0.0",
     "description": "Sigil is a Parenscript to Javascript command line compiler and REPL.",
     "main": "sigil",
