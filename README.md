@@ -11,6 +11,11 @@ Usage:
 
     sigil [-i] [-I load-directory] [--eval <CL code>] [--pseval <PS Code>] app.ps > app.js
 
+Load:
+
+Sigil adds the 'load' command to Parenscript, so you can load macros
+and other files during compilation, like (load "macros.ps").
+
 Interactive REPL:
 
 Sigil comes with an interactive REPL (Read-Eval-Print-Loop) when
