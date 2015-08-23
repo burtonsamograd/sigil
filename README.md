@@ -3,7 +3,7 @@ sigil
 
 Sigil is a Parenscript to Javascript command line compiler and REPL.
 
-    What is Parenscript?
+    What is Parenscript? (from https://common-lisp.net/project/parenscript/)
 
     Parenscript is a translator from an extended subset of Common Lisp
     to JavaScript. Parenscript code can run almost identically on both
