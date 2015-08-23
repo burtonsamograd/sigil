@@ -25,7 +25,7 @@ Parenscript commands interactively.
 
 Installation:
 
-You can 'npm install http://www.github.com/burtonsamograd/sigil'
+You can 'npm install https://github.com/burtonsamograd/sigil'
 locally into node_modules; the -g option doesn't work yet.
 
 Run 'make' or './build.sh' to compile sigil. It requires sbcl (or
