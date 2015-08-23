@@ -14,7 +14,8 @@ Usage:
 Load:
 
 Sigil adds the 'load' command to Parenscript, so you can load macros
-and other files during compilation, like (load "macros.ps").
+and other files during compilation, like (load "macros.ps"). Use -I to
+specify the load paths to search.
 
 Interactive REPL:
 
