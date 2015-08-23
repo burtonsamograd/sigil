@@ -17,15 +17,10 @@ Parenscript commands interactively.
 
 Installation:
 
-Run 'build.sh' or 'make' to compile sigil. Use install.sh to build and
-install in /usr/local/bin.
-
-Requires sbcl to be installed along with parenscript in your ASDF
-instal path. The easiest way is to use quicklisp, but you can also get
-this is to run the following (but there might be other dependencies
-that need to be installed):
-
-    cd ~/common-lisp && git clone https://github.com/vsedach/Parenscript
+Run 'make' or './build.sh' to compile sigil. It requires sbcl (or
+maybe some other Common Lisp but I haven't tried) to be installed,
+which you can grab from http://www.sbcl.org/platform-table.html, or
+through something like 'apt-get install sbcl'.
 
 License
 -------
