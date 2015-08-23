@@ -19,19 +19,19 @@ Sigil is a Parenscript to Javascript command line compiler and REPL.
 
     https://common-lisp.net/project/parenscript/reference.html
 
-Installation:
+Usage:
 
-You can 'npm install sigil_' (note the underscore) locally into
-node_modules; the -g option doesn't work yet.
+    sigil [-i] [-I load-directory] [--eval <CL code>] [--pseval <PS Code>] app.ps > app.js
+
+Installation:
 
 Run 'make' or './build.sh' to compile sigil. It requires sbcl (or
 maybe some other Common Lisp but I haven't tried) to be installed,
 which you can grab from http://www.sbcl.org/platform-table.html, or
 through something like 'apt-get install sbcl'.
 
-Usage:
-
-    sigil [-i] [-I load-directory] [--eval <CL code>] [--pseval <PS Code>] app.ps > app.js
+You can 'npm install sigil_' (note the underscore) locally into
+node_modules; the -g option doesn't work yet.
 
 Load:
 
