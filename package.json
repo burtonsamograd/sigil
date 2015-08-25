@@ -1,25 +1,27 @@
 {
-    "name": "sigil-cli",
-    "version": "1.0.4",
-    "description": "Sigil is a Parenscript to Javascript command line compiler and REPL.",
-    "main": "sigil",
-    "scripts": {
-        "install": "make",
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/burtonsamograd/sigil.git"
-    },
-    "keywords": [
-        "parenscript",
-        "compiler",
-        "repl"
-    ],
-    "author": "Burton Samograd <burton.samograd@gmail.com>",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/burtonsamograd/sigil/issues"
-    },
-    "homepage": "https://github.com/burtonsamograd/sigil"
+  "name": "sigil-cli",
+  "version": "1.0.4",
+  "description": "Sigil is a Parenscript to Javascript command line compiler and REPL.",
+  "main": "sigil",
+  "scripts": {
+    "install": "make",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/burtonsamograd/sigil.git"
+  },
+  "keywords": [
+    "parenscript",
+    "compiler",
+    "repl"
+  ],
+  "author": "Burton Samograd <burton.samograd@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/burtonsamograd/sigil/issues"
+  },
+  "homepage": "https://github.com/burtonsamograd/sigil",
+  "dependencies": {
+  }
 }

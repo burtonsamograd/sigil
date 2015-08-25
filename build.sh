@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Disable ASDF compiler cache
+export ASDF_OUTPUT_TRANSLATIONS=/:
+
 # Check for sbcl
 which sbcl || { echo "Please install SBCL to build sigil."; exit 1; }
 
