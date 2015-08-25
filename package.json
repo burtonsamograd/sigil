@@ -1,6 +1,6 @@
 {
   "name": "sigil-cli",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Sigil is a Parenscript to Javascript command line compiler and REPL.",
   "main": "sigil",
   "scripts": {
