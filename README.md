@@ -33,7 +33,7 @@ which you can grab from http://www.sbcl.org/platform-table.html, or
 through something like 'apt-get install sbcl'.
 
 You can 'npm install sigil-cli' (note the underscore) locally into
-node_modules; the -g option doesn't work yet.
+node_modules, or using the -g flag to install globally.
 
 Load
 ----
