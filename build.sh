@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Check for sbcl
 which sbcl || { echo "Please install SBCL to build sigil."; exit 1; }
