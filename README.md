@@ -32,7 +32,8 @@ Installation
 This will automatically try to compile the executable which can then
 be run with the `sigil` command. It requires from the system:
 
-- SBCL (or some other Common Lisp implementation, untested)
+- [SBCL](http://sbcl.org/) (or some other Common Lisp implementation,
+  but Sigil uses this by default)
 - `make` for building the executable.
 - `wget` for fetching dependencies.
 
