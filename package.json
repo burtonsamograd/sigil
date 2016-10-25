@@ -4,7 +4,7 @@
     "description": "Sigil is a Parenscript to Javascript command line compiler and REPL.",
     "bin": "./sigil",
     "scripts": {
-        "install": "make",
+        "preinstall": "make",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
