@@ -27,13 +27,15 @@ Usage
 Installation
 ------------
 
-Run 'make' or './build.sh' to compile sigil. It requires sbcl (or
-maybe some other Common Lisp but I haven't tried) to be installed,
-which you can grab from http://www.sbcl.org/platform-table.html, or
-through something like 'apt-get install sbcl'.
+    $ npm install -g sigil-cli
 
-You can 'npm install sigil-cli' (note the underscore) locally into
-node_modules; the -g option doesn't work yet.
+This will automatically try to compile the executable which can then
+be run with the `sigil` command. It requires from the system:
+
+- [SBCL](http://sbcl.org/) (or some other Common Lisp implementation,
+  but Sigil uses this by default)
+- `make` for building the executable.
+- `wget` for fetching dependencies.
 
 Load
 ----
