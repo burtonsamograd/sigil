@@ -7,5 +7,5 @@ which sbcl || { echo "Please install SBCL to build sigil."; exit 1; }
 [ ! -e quicklisp.lisp ] && wget https://beta.quicklisp.org/quicklisp.lisp
 
 sbcl --load quicklisp.lisp --eval '(quicklisp-quickstart:install :path "./quicklisp")' --eval '(ql:quickload :parenscript)' \
-     --load sigil.lisp --eval '(sb-ext:save-lisp-and-die "sigil" :executable t
+     --load sigil.lisp --eval '#.(setf (readtable-case *readtable*) :invert)' --eval '(sb-ext:save-lisp-and-die "sigil" :executable t
                                    :toplevel (lambda ()  (main sb-ext:*posix-argv*)))'
